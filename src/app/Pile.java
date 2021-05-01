@@ -36,9 +36,21 @@ public class Pile {
     }
 
     public void moveCard(int fromPile, int toPile){}
-
+    
     public Card pickLastCard(){
         return cards.peek();
+    }
+
+    public Pile pickLastCards(int cardsQty){
+        Stack<?> newStack = (Stack<?>) this.cards.clone();
+        Pile cardsPile = new Pile(0, "NEW");
+        
+        while(cardsPile.size() < cardsQty){
+            Card card = (Card) newStack.peek();
+            if(card.isFaceDown()) break;
+            cardsPile.addCard((Card) newStack.pop());
+        }
+        return cardsPile;
     }
     
     public Card removeLastCard(){
