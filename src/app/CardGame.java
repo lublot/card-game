@@ -16,17 +16,24 @@ public abstract class CardGame {
 
     public void createPiles(){}
 
+    public void checkWinner(){}
+
+    public void gameLoop(){}
+
     public boolean isValidMove(int fromIndex, int toIndex){
         return false;
     }
 
     public void showMenu(){}
 
-    public void start(){
-        System.out.println("Not implemented yet!");
+    public void start() {
+		this.running = true;
+		while(running){	
+			gameLoop();
+			checkWinner();
+		}
     }
 
-    
 	public void moveCard(int fromIndex, int toIndex){
 		Pile fromPile = piles.get(fromIndex-1); 
 		Card cardFromPile = fromPile.removeLastCard();
@@ -42,7 +49,7 @@ public abstract class CardGame {
     public void turnUpCard(int indexPile){
         piles.get(indexPile).turnUpCard();
     }
-
+    
     public void quit() {
 		this.running = false;
 		System.out.println("Programa encerrado!");

@@ -27,6 +27,32 @@ public class Solitaire extends CardGame{
     }
 
 	@Override
+	public void checkWinner(){
+		int foundationIndexes[] = {2, 3, 4, 5};
+		for(int index: foundationIndexes)
+			if(piles.get(index).size()!=13) return;
+		System.out.println("[Parabens voce completou todas as FUNDACOES!]");
+		quit();
+	}
+
+	@Override
+	public void gameLoop(){
+		showPiles();
+		showMenu();
+		int option = input.readInt("");
+		try {
+			switch(option){
+				case 1: moveCardFromTo();			break;
+				case 2: moveCardFromStockToWaste(); break;
+				case 3: turnUpTableauCard();		break;
+				case 4: moveCards();				break;
+				case 5: quit();						break;
+				default: System.out.println("Informe uma opcao valida!");
+			}
+		} catch (Exception e) { System.out.println(e.getMessage()); }
+	}
+
+	@Override
 	public boolean isValidMove(int fromIndex, int toIndex){
 		Pile fromPile = piles.get(fromIndex-1);
 		Pile toPile   = piles.get(toIndex-1);
@@ -39,27 +65,6 @@ public class Solitaire extends CardGame{
 		if(fromPile.name().equals("TABLEAU")  && toPile.name().equals("FUNDACAO")) return true;
 		return false;
 	}
-
-	@Override
-    public void start() {
-		this.running = true;
-		
-		while(running){	
-			showPiles();
-			showMenu();
-			int option = input.readInt("");
-			try {
-				switch(option){
-					case 1: moveCardFromTo(); 			break;
-					case 2: moveCardFromStockToWaste(); break;
-					case 3: turnUpTableauCard(); 		break;
-					case 4: moveCards(); 				break;
-					case 5: quit(); 					break;
-					default: System.out.println("Informe uma opcao valida!");
-				}
-			} catch (Exception e) { System.out.println(e.getMessage()); }
-		}
-    }
 
 	@Override
 	public void showMenu() {
@@ -78,10 +83,10 @@ public class Solitaire extends CardGame{
 	}
 
 	/**
-     * Compara 2 cartas e verifica se ela pode ser adicionada a uma pilha 
-     * construida em ordem descendente.
-     * @param card - Carta que sera adicionada na pilha
-     * @param lastCard - Ultima carta da pilha
+     * Compara 2 cartas das pilhas de origem e destino e verifica se ela pode ser adicionada 
+	 * na pilha destino em ordem descendente de valores Ex: K,Q,J,10. 
+     * @param fromPile - Pilha de origem
+     * @param toPile   - Pilha de destino
      * @return true se as cartas possuem cores diferentes e valores em ordem descendente
      * (card possui um valor menor), caso contrario retorna false.
      */
@@ -135,12 +140,9 @@ public class Solitaire extends CardGame{
 		moveCard(1, 2);
 	}
 
-	private void turnUpTableauCard(){
+	private void turnUpTableauCard() throws Exception{
 		int pileIndex = input.readInt("Escolha um TABLEAU: ")-1;
-		if(pileIndex < 7 || pileIndex > 13) {
-			System.out.println("Opcao invalida!");
-			return;
-		}
+		if(pileIndex < 7 || pileIndex > 13) throw new Exception("[Opcao invalida!\n]");
 		piles.get(pileIndex).turnUpCard();
 	}
 
