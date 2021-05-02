@@ -46,10 +46,6 @@ public abstract class CardGame {
 		this.piles.forEach(pile->pile.show());
     }
     
-    public void turnUpCard(int indexPile){
-        piles.get(indexPile).turnUpCard();
-    }
-    
     public void quit() {
 		this.running = false;
 		System.out.println("Programa encerrado!");

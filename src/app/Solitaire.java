@@ -47,9 +47,11 @@ public class Solitaire extends CardGame{
 				case 3: turnUpTableauCard();		break;
 				case 4: moveOneOrMoreCards();		break;
 				case 5: quit();						break;
-				default: System.out.println("Informe uma opcao valida!");
+				default: System.out.println("[Informe uma opcao valida!]");
 			}
-		} catch (Exception e) { System.out.println(e.getMessage()); }
+		}
+		catch(NullPointerException e) { System.out.println("[Informe uma valor valido!]"); }
+		catch(Exception e) { System.out.println(e.getMessage()); }
 	}
 
 	@Override
@@ -130,7 +132,8 @@ public class Solitaire extends CardGame{
 		moveCard(fromIndex, toIndex);
 	}
 
-	private void moveCardFromStockToWaste(){
+	private void moveCardFromStockToWaste() throws Exception{
+		if(piles.get(0).isEmpty()) throw new Exception("[Pilha estoque esta vazia!]\n");
 		moveCard(1, 2);
 	}
 
@@ -156,11 +159,10 @@ public class Solitaire extends CardGame{
 		if(!isStackableOnTableau(newPile, toPile))
 			throw new Exception("[Essa carta nao pode ser adicionada a TABLEAU!]\n");
 		
-		for(int i=0; i<cardsQty; i++){
+		while(!newPile.isEmpty()){
 			fromPile.removeLastCard();
 			Card cardFromPile = newPile.removeLastCard();
 			toPile.addCard(cardFromPile);
 		}
 	}
-
 }
