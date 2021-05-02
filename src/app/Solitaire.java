@@ -45,7 +45,7 @@ public class Solitaire extends CardGame{
 				case 1: moveCardFromTo();			break;
 				case 2: moveCardFromStockToWaste(); break;
 				case 3: turnUpTableauCard();		break;
-				case 4: moveCards();				break;
+				case 4: moveOneOrMoreCards();		break;
 				case 5: quit();						break;
 				default: System.out.println("Informe uma opcao valida!");
 			}
@@ -61,7 +61,7 @@ public class Solitaire extends CardGame{
 		if(fromPile.name().equals("DESCARTE") && toPile.name().equals("FUNDACAO")) return true;
 		if(fromPile.name().equals("DESCARTE") && toPile.name().equals("TABLEAU"))  return true;
 		if(fromPile.name().equals("FUNDACAO") && toPile.name().equals("TABLEAU"))  return true;
-		if(fromPile.name().equals("TABLEAU")  && toPile.name().equals("TABLEAU"))   return true;
+		if(fromPile.name().equals("TABLEAU")  && toPile.name().equals("TABLEAU"))  return true;
 		if(fromPile.name().equals("TABLEAU")  && toPile.name().equals("FUNDACAO")) return true;
 		return false;
 	}
@@ -74,12 +74,8 @@ public class Solitaire extends CardGame{
 		System.out.println("1 - Mover carta");
 		System.out.println("2 - Virar carta do estoque");
 		System.out.println("3 - Virar carta da fileira");
-		System.out.println("4 - Mover cartas");
+		System.out.println("4 - Mover cartas entre fileiras");
 		System.out.println("5 - Encerrar");
-	}
-
-	private boolean indexIsOutOfBound(int number, int range){
-		return (number < 0 || number > range);
 	}
 
 	/**
@@ -122,8 +118,6 @@ public class Solitaire extends CardGame{
 		Pile fromPile = piles.get(fromIndex-1);
 		Pile toPile   = piles.get(toIndex-1);
 
-		if(indexIsOutOfBound(fromIndex, piles.size())) return;
-		if(indexIsOutOfBound(toIndex,   piles.size())) return;
 		if(fromPile.isEmpty()) throw new Exception("[Pilha de origem esta vazia!]\n");			
 		if(!isValidMove(fromIndex, toIndex)) throw new Exception("[Jogada Invalida!]\n");
 
@@ -146,8 +140,27 @@ public class Solitaire extends CardGame{
 		piles.get(pileIndex).turnUpCard();
 	}
 
-	private void moveCards(){
-		System.out.println("Not implemented yet!");
+	private void moveOneOrMoreCards() throws Exception{
+		int fromIndex = input.readInt("Pilha de origem: ");
+		int cardsQty  = input.readInt("Quantidade de cartas: ");
+		int toIndex   = input.readInt("Pilha de destino: ");
+		Pile fromPile = piles.get(fromIndex-1);
+		Pile toPile   = piles.get(toIndex-1);
+		Pile newPile  = fromPile.pickLastCards(cardsQty);
+
+		if(!fromPile.name().equals("TABLEAU") || !toPile.name().equals("TABLEAU"))
+			throw new Exception("[Mover mais de uma carta so e permitido entre fileiras]\n");
+		
+		if(newPile.isEmpty()) return;
+		
+		if(!isStackableOnTableau(newPile, toPile))
+			throw new Exception("[Essa carta nao pode ser adicionada a TABLEAU!]\n");
+		
+		for(int i=0; i<cardsQty; i++){
+			fromPile.removeLastCard();
+			Card cardFromPile = newPile.removeLastCard();
+			toPile.addCard(cardFromPile);
+		}
 	}
 
 }

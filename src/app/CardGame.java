@@ -35,7 +35,7 @@ public abstract class CardGame {
     }
 
 	public void moveCard(int fromIndex, int toIndex){
-		Pile fromPile = piles.get(fromIndex-1); 
+		Pile fromPile = piles.get(fromIndex-1);
 		Card cardFromPile = fromPile.removeLastCard();
 		cardFromPile.turnUp();
 		piles.get(toIndex-1).addCard(cardFromPile);

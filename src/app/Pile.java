@@ -42,9 +42,11 @@ public class Pile {
     }
 
     public Pile pickLastCards(int cardsQty){
+        if(this.isEmpty()) return new Pile(0, "EMPTY");
+
         Stack<?> newStack = (Stack<?>) this.cards.clone();
         Pile cardsPile = new Pile(0, "NEW");
-        
+
         while(cardsPile.size() < cardsQty){
             Card card = (Card) newStack.peek();
             if(card.isFaceDown()) break;
