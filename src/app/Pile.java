@@ -35,6 +35,10 @@ public class Pile {
     	this.cards.push(card);    
     }
     
+    public void addCardInFinal(Card card) {
+    	this.cards.add(0, card);
+    }
+    
     public boolean isEmpty(){
         return cards.isEmpty();
     }
@@ -61,6 +65,10 @@ public class Pile {
     
     public Card removeLastCard(){
     	return cards.pop(); 
+    }
+    
+    public Card removeBelow(){
+    	return cards.remove(0);
     }
 
     public void show() {

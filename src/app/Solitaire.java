@@ -146,23 +146,12 @@ public class Solitaire extends CardGame{
 		Pile stock = piles.get(0);
 		if(stock.isEmpty()) throw new Exception("[Pilha estoque esta vazia!]\n");
 
-		if(!piles.get(1).isEmpty()) {
-			Pile waste = piles.get(1);
-			Pile auxPile = new Pile();
-
-			while(!stock.isEmpty()) {
-				auxPile.addCard(stock.removeLastCard());
-			}
-
-			while(!waste.isEmpty()) {
-				auxPile.addCard(waste.removeLastCard());
-			}
-
-			while(!auxPile.isEmpty()) {
-				Card card = auxPile.removeLastCard();
-				card.turnDown();
-				stock.addCard(card);
-			}
+		Pile waste = piles.get(1);
+		
+		while(!waste.isEmpty()) {
+			Card card = waste.removeBelow();
+			card.turnDown();
+			stock.addCardInFinal(card);
 		}
 
 		int i = 0;
