@@ -8,6 +8,10 @@ public class Pile {
     private int id;
     private String name;
     
+    public Pile() {
+    	cards = new Stack<Card>();
+    }
+    
     public Pile(int id, String name) {
     	this.id   = id;
     	this.name = name;
@@ -29,6 +33,10 @@ public class Pile {
     
     public void addCard(Card card){
     	this.cards.push(card);    
+    }
+    
+    public void addCardInFinal(Card card) {
+    	this.cards.add(0, card);
     }
     
     public boolean isEmpty(){
@@ -57,6 +65,10 @@ public class Pile {
     
     public Card removeLastCard(){
     	return cards.pop(); 
+    }
+    
+    public Card removeBelow(){
+    	return cards.remove(0);
     }
 
     public void show() {

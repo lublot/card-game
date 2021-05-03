@@ -16,6 +16,10 @@ public class Card {
     public void turnUp(){
         this.faceDown = false;
     }
+    
+    public void turnDown(){
+        this.faceDown = true;
+    }
 
     public boolean isFaceDown(){
         return this.faceDown;
