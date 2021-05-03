@@ -24,6 +24,8 @@ public abstract class CardGame {
         return false;
     }
 
+    public void restart(){}
+
     public void showMenu(){}
 
     public void start() {

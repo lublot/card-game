@@ -46,11 +46,12 @@ public class Solitaire extends CardGame{
 				case 2: moveCardFromStockToWaste(); break;
 				case 3: turnUpTableauCard();		break;
 				case 4: moveOneOrMoreCards();		break;
-				case 5: quit();						break;
+				case 5: restart();					break;
+				case 6: quit();						break;
 				default: System.out.println("[Informe uma opcao valida!]");
 			}
 		}
-		catch(NullPointerException e) { System.out.println("[Informe uma valor valido!]"); }
+		catch(NullPointerException e) { System.out.println("[Informe um valor valido!]"); }
 		catch(Exception e) { System.out.println(e.getMessage()); }
 	}
 
@@ -72,12 +73,18 @@ public class Solitaire extends CardGame{
 	public void showMenu() {
 		System.out.println("====================================================================================");
 		System.out.println("Escolha uma opcao:");
-		//System.out.println("1 - Reiniciar");
 		System.out.println("1 - Mover carta");
 		System.out.println("2 - Virar carta do estoque");
 		System.out.println("3 - Virar carta da fileira");
 		System.out.println("4 - Mover cartas entre fileiras");
-		System.out.println("5 - Encerrar");
+		System.out.println("5 - Reiniciar");
+		System.out.println("6 - Encerrar");
+	}
+
+	@Override
+	public void restart(){
+		piles.clear();
+		createPiles();
 	}
 
 	/**
