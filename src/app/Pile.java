@@ -8,6 +8,10 @@ public class Pile {
     private int id;
     private String name;
     
+    public Pile() {
+    	cards = new Stack<Card>();
+    }
+    
     public Pile(int id, String name) {
     	this.id   = id;
     	this.name = name;

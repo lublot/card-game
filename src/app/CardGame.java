@@ -7,6 +7,7 @@ public abstract class CardGame {
     protected Keypad input;
     protected List<Pile> piles;
     protected boolean running = false;
+    protected int turnCardsFromStock;
 
     public CardGame(){
         input = new Keypad();

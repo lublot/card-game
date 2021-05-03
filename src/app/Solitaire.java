@@ -5,6 +5,7 @@ public class Solitaire extends CardGame{
     
 	public Solitaire(){
     	super();
+    	turnCardsFromStock = 1;
     }
     
 	@Override
@@ -46,8 +47,9 @@ public class Solitaire extends CardGame{
 				case 2: moveCardFromStockToWaste(); break;
 				case 3: turnUpTableauCard();		break;
 				case 4: moveOneOrMoreCards();		break;
-				case 5: restart();					break;
-				case 6: quit();						break;
+				case 5: turnCardsFromStock = turnCardsFromStock==1? 3:1; break;
+				case 6: restart();					break;
+				case 7: quit();						break;
 				default: System.out.println("[Informe uma opcao valida!]");
 			}
 		}
@@ -77,8 +79,9 @@ public class Solitaire extends CardGame{
 		System.out.println("2 - Virar carta do estoque");
 		System.out.println("3 - Virar carta da fileira");
 		System.out.println("4 - Mover cartas entre fileiras");
-		System.out.println("5 - Reiniciar");
-		System.out.println("6 - Encerrar");
+		System.out.println("5 - Virar " + (turnCardsFromStock==1? "3 cartas":"1 carta") + " do estoque");
+		System.out.println("6 - Reiniciar");
+		System.out.println("7 - Encerrar");
 	}
 
 	@Override
@@ -140,8 +143,33 @@ public class Solitaire extends CardGame{
 	}
 
 	private void moveCardFromStockToWaste() throws Exception{
-		if(piles.get(0).isEmpty()) throw new Exception("[Pilha estoque esta vazia!]\n");
-		moveCard(1, 2);
+		Pile stock = piles.get(0);
+		if(stock.isEmpty()) throw new Exception("[Pilha estoque esta vazia!]\n");
+
+		if(!piles.get(1).isEmpty()) {
+			Pile waste = piles.get(1);
+			Pile auxPile = new Pile();
+
+			while(!stock.isEmpty()) {
+				auxPile.addCard(stock.removeLastCard());
+			}
+
+			while(!waste.isEmpty()) {
+				auxPile.addCard(waste.removeLastCard());
+			}
+
+			while(!auxPile.isEmpty()) {
+				Card card = auxPile.removeLastCard();
+				card.turnDown();
+				stock.addCard(card);
+			}
+		}
+
+		int i = 0;
+		while (i < turnCardsFromStock && !stock.isEmpty()) {
+			moveCard(1, 2);
+			i++;
+		}
 	}
 
 	private void turnUpTableauCard() throws Exception{
