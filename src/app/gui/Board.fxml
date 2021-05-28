@@ -77,7 +77,7 @@
                         <RowConstraints fx:id="cards_row" maxHeight="490.0" minHeight="10.0" prefHeight="490.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fx:id="waste" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="stock" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/hidden.png" />
                            </image>
@@ -85,7 +85,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_1" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -93,7 +93,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_2" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -101,7 +101,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" layoutX="282.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_3" fitHeight="80.0" fitWidth="60.0" layoutX="282.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -109,7 +109,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_4" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -117,7 +117,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_5" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -125,7 +125,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_6" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -133,7 +133,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_7" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -141,7 +141,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_8" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -149,7 +149,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="foundation_keys" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -172,7 +172,7 @@
                         <StackPane fx:id="stack_13" prefHeight="492.0" prefWidth="211.0" GridPane.columnIndex="12" GridPane.rowIndex="2" />
                         <StackPane fx:id="stack_14" prefHeight="492.0" prefWidth="211.0" GridPane.columnIndex="13" GridPane.rowIndex="2" />
                         <StackPane fx:id="stack_15" prefHeight="492.0" prefWidth="211.0" GridPane.columnIndex="14" GridPane.rowIndex="2" />
-                        <ImageView fx:id="stock" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <ImageView fx:id="waste" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <image>
                               <Image url="@../assets/board/pile.png" />
                            </image>
@@ -205,17 +205,17 @@
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </padding>
                   </Label>
-                  <TextField promptText="De:">
+                  <TextField fx:id="move_from" promptText="De:">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField promptText="Para:">
+                  <TextField fx:id="move_to" promptText="Para:">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button fx:id="move_button" mnemonicParsing="false" prefHeight="38.0" prefWidth="238.0" text="Confirmar">
+                  <Button fx:id="move_button" mnemonicParsing="false" onAction="#executeMove" prefHeight="38.0" prefWidth="238.0" text="Confirmar">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -227,10 +227,12 @@
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="4">
                <children>
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="201.0" text="Posições" />
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="201.0" text="0: Estoque" />
-                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="201.0" text="1 - 7: Pilhas" />
-                  <Label alignment="CENTER" layoutX="10.0" layoutY="62.0" prefHeight="26.0" prefWidth="201.0" text="8 - 12: Fundações" />
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="255.0" text="Posições" />
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="255.0" text="0: Estoque" />
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="255.0" text="1: Descarte" />
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="256.0" text="2 - 9: Fundações" />
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="62.0" prefHeight="26.0" prefWidth="259.0" text="10: Fundação dos Reis" />
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="259.0" text="11-25: Pilhas" />
                </children>
             </VBox>
             <Button fx:id="restart_button" mnemonicParsing="false" prefHeight="38.0" prefWidth="180.0" text="Reiniciar Partida" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">

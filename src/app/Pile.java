@@ -92,4 +92,12 @@ public class Pile {
     public String name(){
         return name.split(" ")[0];
     }
+
+    public int id () {
+        return id;
+    }
+
+    public Stack<Card> getCards() {
+        return this.cards;
+    }
 }

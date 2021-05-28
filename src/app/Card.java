@@ -29,6 +29,18 @@ public class Card {
         if(isFaceDown()) return "[<>]";
         return String.format("[%s %s]", this.value, this.suit);
     }
+
+    public String getAssetPath() {
+        if (this.faceDown) {
+            return "/app/assets/board/hidden.png";
+        }
+        StringBuilder sb = new StringBuilder("/app/assets/decks/");
+        sb.append(this.suit);
+        sb.append('/');
+        sb.append(this.value);
+        sb.append(".png");
+        return sb.toString();
+    }
     
     public String color(){ return this.color; } 
     public String value(){ return this.value; }

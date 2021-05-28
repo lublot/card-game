@@ -13,6 +13,13 @@ public class Deck {
         this.cards = create();
     }
 
+    public Deck(int qtyDecks){
+        this.cards = new ArrayList<>();
+        for (int i=0; i < qtyDecks; i++) {
+            this.cards.addAll(this.create());
+        }
+    }
+
     private List<Card> create(){
         List<Card> array = new ArrayList<>(52);
         for(String suit: suits)
