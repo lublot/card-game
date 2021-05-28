@@ -2,6 +2,8 @@ package app.gui;
 
 import javax.swing.JOptionPane;
 
+import app.CardGame;
+import app.Solitaire;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -29,7 +31,8 @@ public class Launcher extends Application{
       options[0]
     )) {
       case 0:
-        System.out.println("ue");
+        CardGame game = new Solitaire();
+        game.start();
         break;
       case 1:
         launch(args);

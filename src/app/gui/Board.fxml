@@ -47,13 +47,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="809.0" prefWidth="1270.0" style="-fx-background-color: 0,0,0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.UIController">
+<VBox prefHeight="873.0" prefWidth="1270.0" style="-fx-background-color: 0,0,0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.UIController">
   <children>
-      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="647.0" prefWidth="1007.0" style="-fx-background-color: blue;">
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="688.0" prefWidth="1270.0" style="-fx-background-color: blue;">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="393.0" prefWidth="640.0" style="-fx-background-color: blue;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="689.0" prefWidth="1268.0" style="-fx-background-color: blue;">
                <children>
-                  <GridPane id="grid" fx:id="grid" prefHeight="647.0" prefWidth="1270.0" style="-fx-background-color: #2A7977;">
+                  <GridPane id="grid" fx:id="grid" prefHeight="688.0" prefWidth="1270.0" style="-fx-background-color: #2A7977;">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -82,7 +82,7 @@
                               <Image url="@../assets/board/hidden.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_1" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -90,7 +90,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_2" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -98,7 +98,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_3" fitHeight="80.0" fitWidth="60.0" layoutX="282.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -106,7 +106,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_4" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -114,7 +114,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_5" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -122,7 +122,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_6" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -130,7 +130,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_7" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -138,7 +138,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_8" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -146,7 +146,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <ImageView fx:id="foundation_keys" fitHeight="80.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="14" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -154,7 +154,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                         <StackPane fx:id="stack_1" prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="2" />
@@ -164,7 +164,7 @@
                         <StackPane fx:id="stack_5" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
                         <StackPane fx:id="stack_7" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="2" />
                         <StackPane fx:id="stack_6" layoutX="298.0" layoutY="145.0" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
-                        <StackPane fx:id="stack_8" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                        <StackPane fx:id="stack_8" prefHeight="514.0" prefWidth="85.0" GridPane.columnIndex="7" GridPane.rowIndex="2" />
                         <StackPane fx:id="stack_9" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="8" GridPane.rowIndex="2" />
                         <StackPane fx:id="stack_10" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="9" GridPane.rowIndex="2" />
                         <StackPane fx:id="stack_11" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="10" GridPane.rowIndex="2" />
@@ -177,7 +177,7 @@
                               <Image url="@../assets/board/pile.png" />
                            </image>
                            <cursor>
-                              <Cursor fx:constant="HAND" />
+                              <Cursor fx:constant="DEFAULT" />
                            </cursor>
                         </ImageView>
                      </children>
@@ -186,7 +186,7 @@
             </AnchorPane>
         </content>
       </ScrollPane>
-      <GridPane prefHeight="160.0" prefWidth="1007.0">
+      <GridPane alignment="BOTTOM_CENTER" prefHeight="187.0" prefWidth="1270.0">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -215,7 +215,7 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <Button fx:id="move_button" mnemonicParsing="false" onAction="#executeMove" prefHeight="38.0" prefWidth="238.0" text="Confirmar">
+                  <Button fx:id="move_button" mnemonicParsing="false" onAction="#handleMove" prefHeight="38.0" prefWidth="238.0" text="Confirmar">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>

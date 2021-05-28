@@ -98,7 +98,7 @@ public class Solitaire extends CardGame{
      * @return true se as cartas possuem cores diferentes e valores em ordem descendente
      * (card possui um valor menor), caso contrario retorna false.
      */
-    private boolean isStackableOnTableau(Pile fromPile, Pile toPile){
+	private boolean isStackableOnTableau(Pile fromPile, Pile toPile){
 		Card card = fromPile.pickLastCard();
 		if(toPile.isEmpty()){
 			if(!card.value().equals("K")) return false;
