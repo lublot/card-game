@@ -2,6 +2,12 @@
 
 Para ver o projeto em funcionamento, abra o código no VSCode e execute a classe Main
 
+### Editor: 
+Emerson de Brito Souza
+
+
+
+
 
 ## Projeto Jogo de Cartas (Versão original)
 
