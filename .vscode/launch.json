@@ -6,46 +6,11 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Launch Launcher",
-      "request": "launch",
-      "mainClass": "app.gui.Launcher",
-      "vmArgs": "--module-path=/home/emerson/Documentos/uefs/padroes/card-game-copy/lib --add-modules=javafx.controls,javafx.fxml",
-      "projectName": "card-game-copy_fb201579"
-    },
-    {
-      "type": "java",
-      "name": "Launch Current File",
-      "request": "launch",
-      "mainClass": "${file}"
-    },
-    {
-      "type": "java",
       "name": "Launch Main",
       "request": "launch",
       "mainClass": "app.Main",
-      "projectName": "card-game-copy_fb201579"
-    },
-    {
-      "type": "java",
-      "name": "Launch Board",
-      "request": "launch",
-      "mainClass": "app.gui.Board",
-      "projectName": "card-game-copy_fb201579"
-    },
-    {
-      "type": "java",
-      "name": "Launch Gui",
-      "request": "launch",
-      "mainClass": "app.gui.Gui",
-      "projectName": "card-game-copy_fb201579"
-    },
-    {
-      "type": "java",
-      "name": "Launch Test",
-      "request": "launch",
-      "mainClass": "app.gui.Test",
       "vmArgs": "--module-path=/home/emerson/Documentos/uefs/padroes/card-game-copy/lib --add-modules=javafx.controls,javafx.fxml",
       "projectName": "card-game-copy_fb201579"
-    }
+    },
   ]
 }

@@ -1,5 +1,7 @@
 package app;
 
+import java.nio.file.Paths;
+
 public class Card {
     private String color;
     private String value;
@@ -34,12 +36,9 @@ public class Card {
         if (this.faceDown) {
             return "/app/assets/board/hidden.png";
         }
-        StringBuilder sb = new StringBuilder("/app/assets/decks/");
-        sb.append(this.suit);
-        sb.append('/');
-        sb.append(this.value);
-        sb.append(".png");
-        return sb.toString();
+        return Paths
+            .get("/app/assets/decks", this.suit, this.value + ".png")
+            .toString();
     }
     
     public String color(){ return this.color; } 

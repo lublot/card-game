@@ -1,22 +1,20 @@
-package app.gui;
+package app;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
-import app.Pile;
-import app.Card;
-import app.CardGame;
-import app.Deck;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 
-public class UIController extends CardGame{
+public class BigBertha extends CardGame{
   private Deck deck;
   @FXML
   private GridPane grid;
@@ -28,6 +26,12 @@ public class UIController extends CardGame{
   private TextField move_to;
 
   @FXML
+  private TextField cards_qty;
+
+  @FXML
+  private Label message_label;
+
+  @FXML
   private void initialize () {
     this.createPiles();
     this.showPiles();
@@ -37,7 +41,7 @@ public class UIController extends CardGame{
   public void createPiles () {
     this.piles = new ArrayList<Pile>();
     deck = new Deck(2);
-    this.piles.add(new Pile(0, "ESTOQUE", deck.getCards(18)));
+    this.piles.add(new Pile(0, "ESTOQUE", deck.getCards(14)));
     this.piles.add(new Pile(1, "DESCARTE"));
     this.piles.add(new Pile(2, "FUNDACAO 1"));
     this.piles.add(new Pile(3, "FUNDACAO 2"));
@@ -48,43 +52,68 @@ public class UIController extends CardGame{
     this.piles.add(new Pile(8, "FUNDACAO 7"));
     this.piles.add(new Pile(9, "FUNDACAO 8"));
     this.piles.add(new Pile(10, "REIS"));
-    this.piles.add(new Pile(11, "TABLEAU 1", deck.getCards(6)));
-    this.piles.add(new Pile(12, "TABLEAU 2", deck.getCards(6)));
-    this.piles.add(new Pile(13, "TABLEAU 3", deck.getCards(6)));
-    this.piles.add(new Pile(14, "TABLEAU 4", deck.getCards(6)));
-    this.piles.add(new Pile(15, "TABLEAU 5", deck.getCards(6)));
-    this.piles.add(new Pile(16, "TABLEAU 6", deck.getCards(6)));
-    this.piles.add(new Pile(17, "TABLEAU 7", deck.getCards(6)));
-    this.piles.add(new Pile(18, "TABLEAU 8", deck.getCards(6)));
-    this.piles.add(new Pile(19, "TABLEAU 9", deck.getCards(6)));
-    this.piles.add(new Pile(20, "TABLEAU 10", deck.getCards(6)));
-    this.piles.add(new Pile(21, "TABLEAU 11", deck.getCards(6)));
-    this.piles.add(new Pile(22, "TABLEAU 12", deck.getCards(6)));
-    this.piles.add(new Pile(23, "TABLEAU 13", deck.getCards(6)));
-    this.piles.add(new Pile(24, "TABLEAU 14", deck.getCards(6)));
-    this.piles.add(new Pile(25, "TABLEAU 15", deck.getCards(6)));
+    for (int i = 11; i < 26; i++) {
+      String name = String.format("TABLEAU %d", i - 10);
+      List<Card> cards = deck.getCards(6);
+      cards.forEach(card->card.turnUp());
+      Pile pile = new Pile(i, name, cards);
+      this.piles.add(pile);
+    }
   }
 
   @FXML
   public void handleMove() throws Exception {
-    int from = Integer.parseInt(move_from.getText()) + 1;
-    int to = Integer.parseInt(move_to.getText()) + 1;
-    Pile fromPile = piles.get(from-1);
-		Pile toPile   = piles.get(to-1);
+    try {
+      int from = Integer.parseInt(move_from.getText()) + 1;
+      int to = Integer.parseInt(move_to.getText()) + 1;
+      int cardsQty = Integer.parseInt(cards_qty.getText());
+      Pile fromPile = piles.get(from - 1);
+      Pile toPile   = piles.get(to - 1);
+      Pile newPile  = fromPile.pickLastCards(cardsQty);
+      
+      if (cardsQty < 1) return;
+      
+      message_label.setText("");
 
-		if(fromPile.isEmpty()) throw new Exception("[TABLEAU de origem esta vazia!]\n");			
-		if(!isValidMove(from, to)) throw new Exception("[Jogada Invalida!]\n");
+      if((fromPile.name().equals("ESTOQUE") && toPile.name().equals("DESCARTE")) || toPile.name().equals("REIS")) {
+        moveCard(from, to);
+        this.checkWinner();
+        this.showPiles();
+        return;
+      }
 
-		if(toPile.name().equals("FUNDACAO") && !isStackableOnFoundation(fromPile, toPile))
-			throw new Exception("[Essa carta nao pode ser adicionada a FUNDACAO!]\n");
-	
-		if(toPile.name().equals("TABLEAU")  && !isStackableOnTableau(fromPile, toPile))
-			throw new Exception("[Essa carta nao pode ser adicionada a TABLEAU!]\n");
+      if((fromPile.name().equals("DESCARTE") && toPile.name().equals("ESTOQUE"))) {
+        newPile = fromPile.pickLastCards(fromPile.size());
+        while(!newPile.isEmpty()){
+          fromPile.removeLastCard();
+          Card cardFromPile = newPile.removeLastCard();
+          toPile.addCard(cardFromPile);
+        }
+        this.checkWinner();
+        this.showPiles();
+        return;
+      }
 
-    if(toPile.name().equals("REIS")  && !isStackableOnKeyFoundation(fromPile))
-			throw new Exception("[Essa carta nao pode ser adicionada a FUNDACAO!]\n");
-		moveCard(from, to);
-    this.showPiles();
+      if((!fromPile.name().equals("TABLEAU") || !toPile.name().equals("TABLEAU")) && cardsQty > 1)
+        throw new Exception("[Mover mais de uma carta so e permitido entre fileiras]\n");
+      
+      if(newPile.isEmpty()) return;
+      
+      if(!isStackableOnTableau(newPile, toPile) && !isStackableOnFoundation(newPile, toPile))
+        throw new Exception("[Essa carta nao pode ser movida!]\n");
+      
+      while(!newPile.isEmpty()){
+        fromPile.removeLastCard();
+        Card cardFromPile = newPile.removeLastCard();
+        toPile.addCard(cardFromPile);
+      }
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+      message_label.setText("Jogada inválida");
+    } finally {
+      this.checkWinner();
+      this.showPiles();
+    }
   }
 
   @FXML
@@ -220,8 +249,9 @@ public class UIController extends CardGame{
 	public void checkWinner(){
 		int foundationIndexes[] = {2, 3, 4, 5, 6, 7, 8, 9};
 		for(int index: foundationIndexes)
-			if(piles.get(index).size()!=13) return;
-		System.out.println("[Parabens voce completou todas as FUNDACOES!]");
+			if(piles.get(index).size()!=12 || piles.get(10).size()!=8) return;
+    System.out.println("[Parabens voce completou todas as FUNDACOES!]");
+    message_label.setText("Parabéns! Você venceu!");
   }
 
   @FXML

@@ -47,7 +47,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="873.0" prefWidth="1270.0" style="-fx-background-color: 0,0,0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.gui.UIController">
+<VBox prefHeight="873.0" prefWidth="1270.0" style="-fx-background-color: 0,0,0;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.BigBertha">
   <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="688.0" prefWidth="1270.0" style="-fx-background-color: blue;">
         <content>
@@ -200,7 +200,7 @@
          <children>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="207.0" text="Mover" textAlignment="CENTER">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="255.0" text="Mover" textAlignment="CENTER">
                      <padding>
                         <Insets left="10.0" right="10.0" top="5.0" />
                      </padding>
@@ -211,6 +211,11 @@
                      </VBox.margin>
                   </TextField>
                   <TextField fx:id="move_to" promptText="Para:">
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="cards_qty" promptText="Quantidade:">
                      <VBox.margin>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
@@ -235,7 +240,7 @@
                   <Label alignment="CENTER" prefHeight="26.0" prefWidth="259.0" text="11-25: Pilhas" />
                </children>
             </VBox>
-            <Button fx:id="restart_button" mnemonicParsing="false" prefHeight="38.0" prefWidth="180.0" text="Reiniciar Partida" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+            <Button fx:id="restart_button" mnemonicParsing="false" onAction="#restart" prefHeight="38.0" prefWidth="180.0" text="Reiniciar Partida" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                <GridPane.margin>
                   <Insets top="10.0" />
                </GridPane.margin>
@@ -248,6 +253,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Label fx:id="message_label" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
   </children>
