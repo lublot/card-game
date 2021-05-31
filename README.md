@@ -1,4 +1,9 @@
-﻿# Projeto Jogo de Cartas
+﻿﻿# Projeto Jogo de Cartas (Versão modificada)
+
+Para ver o projeto em funcionamento, abra o código no VSCode e execute a classe Main
+
+
+## Projeto Jogo de Cartas (Versão original)
 
 ### Autores:
 ```
