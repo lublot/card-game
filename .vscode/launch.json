@@ -9,7 +9,7 @@
       "name": "Launch Main",
       "request": "launch",
       "mainClass": "app.Main",
-      "vmArgs": "--module-path=/home/emerson/Documentos/uefs/padroes/card-game-copy/lib --add-modules=javafx.controls,javafx.fxml",
+      "vmArgs": "--module-path=${workspaceFolder}/lib --add-modules=javafx.controls,javafx.fxml",
       "projectName": "card-game-copy_fb201579"
     },
   ]

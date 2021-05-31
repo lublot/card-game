@@ -1,4 +1,9 @@
-﻿# Projeto Jogo de Cartas
+﻿# Projeto Jogo de Cartas (Versão modificada)
+
+Para ver o projeto em funcionamento, abra o código no VSCode e execute a classe Main
+
+
+## Projeto Jogo de Cartas (Versão original)
 
 ### Autores:
 ```
@@ -10,7 +15,7 @@ O jogo foi implementado na linguagem de programação JAVA (versão 8). As class
 
 Este jogo foi implementado pensando na sua utilização via terminal, sendo assim para rodar o jogo é necessário ter o [jdk 8](https://www.oracle.com/br/java/technologies/javase/javase-jdk8-downloads.html "jdk 8") instalado na máquina.
 
-### ~Como jogar~:
+### Como jogar:
 
 1. Baixe o projeto 
 2. Abra o terminal na pasta /game do projeto e digite: java -jar CardGame.jar
