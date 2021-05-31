@@ -2,6 +2,8 @@ package app;
 
 import javax.swing.JOptionPane;
 
+import app.CardGame;
+import app.Solitaire;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
